@@ -379,7 +379,7 @@ export default function HomePage() {
     const onScroll = () => {
       if (!nav) return
       if (window.scrollY > 80) {
-        nav.style.background = 'rgba(10,10,10,0.92)'
+        nav.style.background = '#0A0A0A'
         nav.style.backdropFilter = 'blur(12px)'
         nav.style.borderBottom = '1px solid rgba(154,149,144,0.12)'
       } else {

@@ -1,18 +1,31 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function Nav() {
+  const [open, setOpen] = useState(false)
+  const close = () => setOpen(false)
   return (
-    <nav>
-      <a href="#" className="nav-logo">
+    <nav className={open ? 'nav-open' : ''}>
+      <a href="#" className="nav-logo" onClick={close}>
         <img src="/masters-tech-logo.png" alt="Master's Tech" className="nav-logo-img" />
       </a>
+      <button
+        type="button"
+        className="nav-toggle"
+        aria-label={open ? 'Close menu' : 'Open menu'}
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul className="nav-links">
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#projects" onClick={close}>Work</a></li>
+        <li><a href="#services" onClick={close}>Services</a></li>
+        <li><a href="#about" onClick={close}>About</a></li>
+        <li><a href="#contact" onClick={close}>Contact</a></li>
       </ul>
-      <a href="#contact" className="nav-cta">Start a Project</a>
+      <a href="#contact" className="nav-cta" onClick={close}>Start a Project</a>
     </nav>
   )
 }
